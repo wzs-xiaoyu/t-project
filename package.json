@@ -9,8 +9,18 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint"
+    ],
+    "*.{js,json,css,vue,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "core-js": "^3.4.4",
